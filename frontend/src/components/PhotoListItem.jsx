@@ -8,10 +8,10 @@ const PhotoListItem = (props) => {
 
   return (
     <div className="photoListItem">
-      <p>{props.data.username}</p>
-      <img src={props.data.imageSource} />
-      <p>{props.data.location}</p>
-      <img src={props.data.profile} />
+      <p>{username}</p>
+      <img src={imageSource} />
+      <p>{location.city}, {location.country}</p>
+      <img src={profile} />
     </div>
   );
 };
