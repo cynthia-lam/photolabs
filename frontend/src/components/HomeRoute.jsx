@@ -1,5 +1,5 @@
 import React from 'react';
-import TopNavigationBar from './TopNavigationBar'
+import TopNavigationBar from './TopNavigationBar';
 import PhotoList from './PhotoList';
 import '../styles/HomeRoute.scss';
 
