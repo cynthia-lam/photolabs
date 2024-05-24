@@ -9,7 +9,7 @@ const PhotoListItem = (props) => {
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton />
+      <PhotoFavButton updateFavCount={props.updateFavCount}/>
       <img src={urls.full} className="photo-list__image" />
       <div className="photo-list__user-details">
         <img src={user.profile} className="photo-list__user-profile" />
