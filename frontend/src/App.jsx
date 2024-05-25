@@ -20,7 +20,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute photos={photos} topics={topics} toggleModal={toggleModal}/>
-      <PhotoDetailsModal isModalOpen={isModalOpen}/>
+      <PhotoDetailsModal isModalOpen={isModalOpen} toggleModal={toggleModal}/>
     </div>
   );
 };
