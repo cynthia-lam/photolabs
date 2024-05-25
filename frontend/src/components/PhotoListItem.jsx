@@ -6,11 +6,12 @@ import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = (props) => {
   const { id, location, urls, user } = props.photo;
-
+  const toggleModal = props.toggleModal;
+  
   return (
     <div className="photo-list__item">
       <PhotoFavButton id={id} toggleFavourite={props.toggleFavourite} favourites={props.favourites} isFavourite={props.isFavourite}/>
-      <img src={urls.full} className="photo-list__image" />
+      <img src={urls.full} className="photo-list__image" onClick={toggleModal}/>
       <div className="photo-list__user-details">
         <img src={user.profile} className="photo-list__user-profile" />
         <div className="photo-list__user-info">
