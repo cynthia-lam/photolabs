@@ -4,12 +4,12 @@ import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
-  const [isLiked, setLiked] = useState(false);
-  const id = props.id;
+  // const [isLiked, setLiked] = useState(false);
+  const {id, favourites, isFavourite} = props;
+
+  const favourited = isFavourite(id);
 
   const toggleLiked = function() {
-    setLiked(!isLiked);
-
     props.toggleFavourite(id);
     console.log(id);
   }
@@ -17,7 +17,7 @@ function PhotoFavButton(props) {
   return (
     <div className="photo-list__fav-icon">
       <div className="photo-list__fav-icon-svg" onClick={toggleLiked}>
-        <FavIcon selected={isLiked}/>
+        <FavIcon selected={favourited}/>
       </div>
     </div>
   );
