@@ -12,9 +12,7 @@ const App = () => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const toggleModal = () => {
-    isModalOpen ? 
-    setModalOpen(false) :
-    setModalOpen(true)
+    setModalOpen(!isModalOpen);
   };
 
   return (
