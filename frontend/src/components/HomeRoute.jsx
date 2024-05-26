@@ -4,31 +4,14 @@ import PhotoList from './PhotoList';
 import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
-  const [favourites, setFavourites] = useState([]);
-
-  const isFavourite = function(id) {
-    return favourites.includes(id);
-  }
-
-  // adds or removes id from favourites array
-  const toggleFavourite = function(id) {
-    if (isFavourite(id)) {
-      setFavourites((prevState) => {
-        return prevState.filter((elem) => elem !== id);
-      });
-    } else {
-      setFavourites((prevState) => ([...prevState, id]));
-    }
-  }
-
   return (
     <div className="home-route">
-      <TopNavigationBar topics={props.topics} isFavPhotoExist={favourites.length > 0 ? true : false}/>
+      <TopNavigationBar topics={props.topics} isFavPhotoExist={props.favourites.length > 0 ? true : false}/>
       <PhotoList 
       photos={props.photos} 
-      toggleFavourite={toggleFavourite} 
-      favourites={favourites} 
-      isFavourite={isFavourite}
+      toggleFavourite={props.toggleFavourite} 
+      favourites={props.favourites} 
+      isFavourite={props.isFavourite}
       toggleModal={props.toggleModal}
       updateModalPhoto={props.updateModalPhoto}/> 
     </div>
