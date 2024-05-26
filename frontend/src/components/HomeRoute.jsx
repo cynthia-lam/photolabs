@@ -29,7 +29,8 @@ const HomeRoute = (props) => {
       toggleFavourite={toggleFavourite} 
       favourites={favourites} 
       isFavourite={isFavourite}
-      toggleModal={props.toggleModal}/> 
+      toggleModal={props.toggleModal}
+      updateModalPhoto={props.updateModalPhoto}/> 
     </div>
   );
 };

@@ -10,16 +10,29 @@ import './App.scss';
 const App = () => {
 
   const [isModalOpen, setModalOpen] = useState(false);
+  const [modalPhoto, setModalPhoto] = useState({});
 
-  const toggleModal = (props) => {
+  const toggleModal = () => {
     setModalOpen(!isModalOpen);
-    console.log(props);
   };
+
+  // need new fxn for updating photo
+  const updateModalPhoto = (photo) => {
+    setModalPhoto(photo);
+  }
 
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} toggleModal={toggleModal}/>
-      <PhotoDetailsModal isModalOpen={isModalOpen} toggleModal={toggleModal}/>
+      <HomeRoute 
+      photos={photos} 
+      topics={topics} 
+      toggleModal={toggleModal}
+      updateModalPhoto={updateModalPhoto}/>
+
+      <PhotoDetailsModal 
+      isModalOpen={isModalOpen} 
+      toggleModal={toggleModal} 
+      modalPhoto={modalPhoto}/>
     </div>
   );
 };

@@ -13,7 +13,8 @@ const PhotoList = (props) => {
         toggleFavourite={props.toggleFavourite} 
         favourites={props.favourites} 
         isFavourite={props.isFavourite}
-        toggleModal={props.toggleModal}/>
+        toggleModal={props.toggleModal}
+        updateModalPhoto={props.updateModalPhoto}/>
       )}
     </ul>
   );
