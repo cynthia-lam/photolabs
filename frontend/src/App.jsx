@@ -11,8 +11,9 @@ const App = () => {
 
   const [isModalOpen, setModalOpen] = useState(false);
 
-  const toggleModal = () => {
+  const toggleModal = (props) => {
     setModalOpen(!isModalOpen);
+    console.log(props);
   };
 
   return (
