@@ -16,7 +16,7 @@ const PhotoDetailsModal = (props) => {
       </button>
 
       <img src={modalPhoto.urls.full} className="photo-details-modal__image"/>
-      <div className="photo-list__user-details">
+      <div className="photo-details-modal__header">
         <img src={modalPhoto.user.profile} className="photo-list__user-profile" />
         <div className="photo-list__user-info">
           <p>{modalPhoto.user.username}</p>
@@ -26,7 +26,7 @@ const PhotoDetailsModal = (props) => {
         </div>
       </div>
 
-      <PhotoList 
+      <PhotoList className='photo-details-modal__images'
       photos={photos} 
       toggleFavourite={toggleFavourite} 
       favourites={favourites} 
