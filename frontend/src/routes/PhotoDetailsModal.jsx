@@ -2,8 +2,10 @@ import React from 'react';
 
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
+import PhotoList from 'components/PhotoList';
 
-const PhotoDetailsModal = ({isModalOpen, toggleModal, modalPhoto}) => {
+const PhotoDetailsModal = (props) => {
+  const {isModalOpen, toggleModal, modalPhoto, photos, toggleFavourite, favourites, isFavourite, updateModalPhoto} = props;
   console.log(modalPhoto);
 
   return (
@@ -12,8 +14,8 @@ const PhotoDetailsModal = ({isModalOpen, toggleModal, modalPhoto}) => {
       <button className="photo-details-modal__close-button" onClick={toggleModal}>
         <img src={closeSymbol} alt="close symbol"/>
       </button>
-      {/* test code below */}
-      {/* <img src={modalPhoto.urls.full} className="photo-list__image"/>
+
+      <img src={modalPhoto.urls.full} className="photo-details-modal__image"/>
       <div className="photo-list__user-details">
         <img src={modalPhoto.user.profile} className="photo-list__user-profile" />
         <div className="photo-list__user-info">
@@ -22,7 +24,15 @@ const PhotoDetailsModal = ({isModalOpen, toggleModal, modalPhoto}) => {
             <p>{modalPhoto.location.city}, {modalPhoto.location.country}</p>
           </div>
         </div>
-      </div> */}
+      </div>
+
+      <PhotoList 
+      photos={photos} 
+      toggleFavourite={toggleFavourite} 
+      favourites={favourites} 
+      isFavourite={isFavourite}
+      toggleModal={toggleModal}
+      updateModalPhoto={updateModalPhoto}/>
     </div>
   )
 };
