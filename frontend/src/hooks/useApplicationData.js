@@ -1,41 +1,66 @@
-import { useState } from "react";
+import { useReducer } from "react";
 
+export const ACTIONS = {
+  FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
+  FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
+  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  SELECT_PHOTO: 'SELECT_PHOTO',
+  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case ACTIONS.FAV_PHOTO_ADDED:
+      return { ...state, favourites: [...state.favourites, action.payload.id]}
+    case ACTIONS.FAV_PHOTO_REMOVED:
+      return { ...state, favourites: [...state.favourites.filter((elem) => elem !== action.payload.id)] }
+    case ACTIONS.SET_PHOTO_DATA:
+      return { ...state, modalPhoto: action.payload.photo }
+    // case SET_TOPIC_DATA:
+    //   return { /* insert logic */ }
+    case ACTIONS.SELECT_PHOTO:
+      return { ...state, isModalOpen: !state.isModalOpen }
+    // case DISPLAY_PHOTO_DETAILS:
+    //   return { /* insert logic */ }
+    default:
+      throw new Error(
+        `Tried to reduce with unsupported action type: ${action.type}`
+      );
+  }
+}
+
+const initialState = {
+  favourites: [],
+  modalPhoto: null,
+  isModalOpen: false
+};
 
 const useApplicationData = function() {
-  // single state object
-  const [state, setState] = useState({
-    isModalOpen: false,
-    modalPhoto: {},
-    favourites: []
-  });
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  // const isFavourite = function(id) {
-  //   return favourites.includes(id);
-  // }
-
-  // adds or removes id from favourites array
-  const toggleFavourite = function(id) {
-    if (state.favourites.includes(id)) {
-      setState((prevState) => ({ ...prevState, favourites: prevState.favourites.filter((elem) => elem !== id) }));
+  const toggleFavourite = (photo) => {
+    if (state.favourites.includes(photo.id)) {
+      dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: { id: photo.id } });
     } else {
-      setState((prevState) => ({ ...prevState, favourites: [...prevState.favourites, id]}));
+      dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: { id: photo.id } });
     }
   };
-  
+
   const setPhotoSelected = (photo) => {
-    setState(prevState => ({ ...prevState, modalPhoto: photo }))
+    dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: { photo } });
   };
 
   const toggleModal = () => {
-    setState(prevState => ({ ...prevState, isModalOpen: !prevState.isModalOpen }));
+    dispatch({ type: ACTIONS.SELECT_PHOTO });
   };
 
-  return(
-    { state,
+  return {
+    state,
     updateToFavPhotoIds: toggleFavourite,
     setPhotoSelected,
-    onClosePhotoDetailsModal: toggleModal}
-  )
+    onClosePhotoDetailsModal: toggleModal,
+  };
 }
 
 export default useApplicationData;
