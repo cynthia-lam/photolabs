@@ -12,7 +12,6 @@ const PhotoList = (props) => {
         photo={photo} 
         toggleFavourite={props.toggleFavourite} 
         favourites={props.favourites} 
-        isFavourite={props.isFavourite}
         toggleModal={props.toggleModal}
         updateModalPhoto={props.updateModalPhoto}/>
       )}

@@ -11,7 +11,6 @@ const HomeRoute = (props) => {
       photos={props.photos} 
       toggleFavourite={props.toggleFavourite} 
       favourites={props.favourites} 
-      isFavourite={props.isFavourite}
       toggleModal={props.toggleModal}
       updateModalPhoto={props.updateModalPhoto}/> 
     </div>

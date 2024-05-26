@@ -5,7 +5,7 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 
 const PhotoDetailsModal = (props) => {
-  const {isModalOpen, toggleModal, modalPhoto, photos, toggleFavourite, favourites, isFavourite, updateModalPhoto} = props;
+  const {isModalOpen, toggleModal, modalPhoto, photos, toggleFavourite, favourites, updateModalPhoto} = props;
   console.log(modalPhoto);
 
   return (
@@ -30,7 +30,6 @@ const PhotoDetailsModal = (props) => {
       photos={photos} 
       toggleFavourite={toggleFavourite} 
       favourites={favourites} 
-      isFavourite={isFavourite}
       toggleModal={toggleModal}
       updateModalPhoto={updateModalPhoto}/>
     </div>
