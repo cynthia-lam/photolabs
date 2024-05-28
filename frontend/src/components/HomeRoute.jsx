@@ -6,7 +6,10 @@ import '../styles/HomeRoute.scss';
 const HomeRoute = (props) => {
   return (
     <div className="home-route">
-      <TopNavigationBar topics={props.topics} isFavPhotoExist={props.favourites.length > 0 ? true : false}/>
+      <TopNavigationBar 
+      topics={props.topics} 
+      setTopicId={props.setTopicId} 
+      isFavPhotoExist={props.favourites.length > 0 ? true : false}/>
       <PhotoList 
       photos={props.photos} 
       toggleFavourite={props.toggleFavourite} 
