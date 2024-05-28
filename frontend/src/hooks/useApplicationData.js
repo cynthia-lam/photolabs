@@ -12,17 +12,17 @@ export const ACTIONS = {
 function reducer(state, action) {
   switch (action.type) {
     case ACTIONS.FAV_PHOTO_ADDED:
-      return { ...state, favourites: [...state.favourites, action.payload.id]}
+      return { ...state, favourites: [...state.favourites, action.payload.id] }
     case ACTIONS.FAV_PHOTO_REMOVED:
       return { ...state, favourites: [...state.favourites.filter((elem) => elem !== action.payload.id)] }
-    case ACTIONS.SET_PHOTO_DATA:
-      return { ...state, modalPhoto: action.payload.photo }
-    // case SET_TOPIC_DATA:
-    //   return { /* insert logic */ }
     case ACTIONS.SELECT_PHOTO:
+      return { ...state, modalPhoto: action.payload.photo }
+    case ACTIONS.DISPLAY_PHOTO_DETAILS:
       return { ...state, isModalOpen: !state.isModalOpen }
-    // case DISPLAY_PHOTO_DETAILS:
+    // case ACTIONS.SET_TOPIC_DATA:
     //   return { /* insert logic */ }
+    //     case ACTIONS.SET_PHOTO_DATA: // from API call to set photo state
+    // return { /* insert logic */ }
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -32,27 +32,30 @@ function reducer(state, action) {
 
 const initialState = {
   favourites: [],
-  modalPhoto: null,
+  modalPhoto: {},
   isModalOpen: false
 };
 
 const useApplicationData = function() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const toggleFavourite = (photo) => {
-    if (state.favourites.includes(photo.id)) {
-      dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: { id: photo.id } });
+  const toggleFavourite = (photoId) => {
+    console.log('toggleFav', photoId)
+    if (state.favourites.includes(photoId)) {
+      console.log("removing photo");
+      dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: { id: photoId } });
     } else {
-      dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: { id: photo.id } });
+      console.log("adding photo");
+      dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: { id: photoId } });
     }
   };
 
   const setPhotoSelected = (photo) => {
-    dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: { photo } });
+    dispatch({ type: ACTIONS.SELECT_PHOTO, payload: { photo } });
   };
 
   const toggleModal = () => {
-    dispatch({ type: ACTIONS.SELECT_PHOTO });
+    dispatch({ type: ACTIONS.DISPLAY_PHOTO_DETAILS });
   };
 
   return {
@@ -64,3 +67,5 @@ const useApplicationData = function() {
 }
 
 export default useApplicationData;
+
+// check reqs to see if i can change these names 
