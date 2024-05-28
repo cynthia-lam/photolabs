@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import HomeRoute from './components/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import useApplicationData from 'hooks/useApplicationData';
-import photos from 'mocks/photos';
 import topics from 'mocks/topics';
 import './App.scss';
 
@@ -17,7 +16,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute 
-      photos={photos} 
+      photos={state.photoData} 
       topics={topics} 
       toggleModal={onClosePhotoDetailsModal}
       updateModalPhoto={setPhotoSelected}
@@ -28,7 +27,7 @@ const App = () => {
       isModalOpen={state.isModalOpen} 
       toggleModal={onClosePhotoDetailsModal} 
       modalPhoto={state.modalPhoto}
-      photos={photos}
+      photos={state.photoData} // note need to change this to similar topics, map photos where photo.topic == state.topic
       toggleFavourite={updateToFavPhotoIds} 
       favourites={state.favourites} 
       updateModalPhoto={setPhotoSelected}/>
