@@ -54,12 +54,9 @@ const useApplicationData = function() {
   }, []);
 
   const toggleFavourite = (photoId) => {
-    console.log('toggleFav', photoId)
     if (state.favourites.includes(photoId)) {
-      console.log("removing photo");
       dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: { id: photoId } });
     } else {
-      console.log("adding photo");
       dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: { id: photoId } });
     }
   };
