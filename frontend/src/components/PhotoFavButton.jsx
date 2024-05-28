@@ -5,12 +5,11 @@ import '../styles/PhotoFavButton.scss';
 
 function PhotoFavButton(props) {
   const id = props.id;
-  console.log("props: ", props);
   const favourites = props.favourites;
-
+  
   const toggleLiked = function() {
     props.toggleFavourite(id);
-    console.log(id);
+ 
   }
 
   return (
