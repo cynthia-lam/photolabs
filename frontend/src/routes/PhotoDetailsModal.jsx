@@ -15,6 +15,7 @@ const PhotoDetailsModal = (props) => {
       <button className="photo-details-modal__close-button" onClick={toggleModal}>
         <img src={closeSymbol} alt="close symbol"/>
       </button>
+      <div className='modal-image__item'>
       <PhotoFavButton id={modalPhoto.id} 
       toggleFavourite={toggleFavourite} 
       favourites={favourites}/>
@@ -27,6 +28,7 @@ const PhotoDetailsModal = (props) => {
             <p>{modalPhoto.location.city}, {modalPhoto.location.country}</p>
           </div>
         </div>
+      </div>
       </div>
 
       <PhotoList className='photo-details-modal__images'

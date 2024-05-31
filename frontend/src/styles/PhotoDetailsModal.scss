@@ -34,6 +34,12 @@
   border-radius: 8px;
 }
 
+.modal-image__item {
+  margin: 24px;
+  padding: 8px;
+  max-width: fit-content;
+}
+
 .photo-details-modal__top-bar {
   display: flex;
   flex-direction: row;
