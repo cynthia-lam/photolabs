@@ -13,6 +13,7 @@ const App = () => {
     onClosePhotoDetailsModal,
     setTopicId} = useApplicationData();
 
+    console.log(state.photoData);
   return (
     <div className="App">
       <HomeRoute 
@@ -28,7 +29,7 @@ const App = () => {
       isModalOpen={state.isModalOpen} 
       toggleModal={onClosePhotoDetailsModal} 
       modalPhoto={state.modalPhoto}
-      photos={state.photoData} // note need to change this to similar topics, map photos where photo.topic == state.topic
+      photos={state.modalPhoto.similar_photos}
       toggleFavourite={updateToFavPhotoIds} 
       favourites={state.favourites} 
       updateModalPhoto={setPhotoSelected}/>
