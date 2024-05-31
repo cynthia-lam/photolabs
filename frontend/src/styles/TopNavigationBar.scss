@@ -18,3 +18,10 @@
   text-underline-position: auto;
   margin-left: 24px;
 }
+
+.top-nav-bar__topics_and_fav {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  font-weight: bold;
+}
