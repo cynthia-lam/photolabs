@@ -6,16 +6,16 @@ PhotoLabs is a single-page application (SPA) that allows users to browse, view i
 
 # Usage
 From the Home Page, users can view photos loaded from the API.
-!["Home Page"](https://github.com/cynthia-lam/photolabs/tree/main/docs/photolabs-homepage.png)
+!["Home Page"](https://github.com/cynthia-lam/photolabs/blob/main/docs/photolabs-homepage.png)
 
 Users can navigate to different photo categories (topics). Users can like a photo from any location within the application, and liked photos are indicated with a heart icon and notification in the Nav
-!["Home Page"](https://github.com/cynthia-lam/photolabs/tree/main/docs/photolabs-nav-hover.png)
+!["Home Page"](https://github.com/cynthia-lam/photolabs/blob/main/docs/photolabs-nav-hover.png)
 
 Here's the photos from the People topic! 
-!["Home Page"](https://github.com/cynthia-lam/photolabs/tree/main/docs/photolabs-people.png)
+!["Home Page"](https://github.com/cynthia-lam/photolabs/blob/main/docs/photolabs-people.png)
 
 Users can click on a photo to view a larger version and see relevant/similar photos.
-!["Modal"](https://github.com/cynthia-lam/photolabs/tree/main/docs/photolabs-modalOpen.png)
+!["Modal"](https://github.com/cynthia-lam/photolabs/blob/main/docs/photolabs-modalOpen.png)
 
 
 
