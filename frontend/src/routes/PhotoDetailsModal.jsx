@@ -7,7 +7,6 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
   const {isModalOpen, toggleModal, modalPhoto, photos, toggleFavourite, favourites, updateModalPhoto} = props;
-  console.log(modalPhoto);
 
   return (
     isModalOpen &&

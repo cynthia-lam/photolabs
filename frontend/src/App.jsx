@@ -12,8 +12,6 @@ const App = () => {
     setPhotoSelected,
     onClosePhotoDetailsModal,
     setTopicId} = useApplicationData();
-
-    console.log(state.photoData);
   return (
     <div className="App">
       <HomeRoute 
